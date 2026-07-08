@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.tecnobyte.es/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block AI scrapers if desired (optional)
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /

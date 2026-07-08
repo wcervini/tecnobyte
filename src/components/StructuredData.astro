@@ -1,0 +1,66 @@
+---
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tecnobyte",
+  "description": "Empresa experta en desarrollo web moderno. Sitios rápidos, seguros y optimizados con Astro, Tailwind CSS y Cloudflare.",
+  "url": "https://www.tecnobyte.es",
+  "logo": "https://www.tecnobyte.es/favicon.svg",
+  "sameAs": [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "Spanish",
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ES",
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "España",
+  },
+  "knowsAbout": [
+    "Desarrollo Web",
+    "Astro Framework",
+    "Tailwind CSS",
+    "Cloudflare",
+    "Hosting",
+    "Dominios",
+  ],
+};
+
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Tecnobyte",
+  "url": "https://www.tecnobyte.es",
+  "description": "Expertos en desarrollo web moderno con las últimas tecnologías.",
+  "inLanguage": "es",
+};
+
+const localBusinessData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Tecnobyte",
+  "description": "Servicios de desarrollo web, hosting en Cloudflare y registro de dominios.",
+  "url": "https://www.tecnobyte.es",
+  "serviceType": [
+    "Desarrollo Web",
+    "Hosting",
+    "Dominios",
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "Tecnobyte",
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "España",
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteData)} />
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessData)} />
