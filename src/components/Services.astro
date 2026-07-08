@@ -1,0 +1,87 @@
+---
+const services = [
+  {
+    title: "Desarrollo Web",
+    description: "Páginas web a medida con las últimas tecnologías. Desde sitios institucionales hasta aplicaciones web complejas.",
+    icon: "code",
+    color: "accent",
+  },
+  {
+    title: "Hosting en Cloudflare",
+    description: "Despliegue global con CDN, protección DDoS y alta disponibilidad. Tu sitio siempre rápido y seguro.",
+    icon: "cloud",
+    color: "cyber",
+  },
+  {
+    title: "Dominios",
+    description: "Registro y gestión de nombres de dominio. Encuentra el nombre perfecto para tu proyecto.",
+    icon: "globe",
+    color: "lime",
+  },
+];
+---
+
+<section id="servicios" class="relative py-32 bg-dark-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <span class="text-accent-400 text-sm font-semibold tracking-widest uppercase">Servicios</span>
+      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+        Soluciones completas para tu presencia digital
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Ofrecemos todo lo que necesitas para que tu negocio brille en internet.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div
+          class:list={[
+            "card-glass rounded-2xl p-8 transition-all duration-500 group",
+            "animate-fade-up opacity-0",
+            index === 0 && "animate-delay-1",
+            index === 1 && "animate-delay-2",
+            index === 2 && "animate-delay-3",
+          ]}
+        >
+          <div class:list={[
+            "w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110",
+            service.color === "accent" && "bg-accent-400/10 text-accent-400",
+            service.color === "cyber" && "bg-cyber-400/10 text-cyber-400",
+            service.color === "lime" && "bg-lime-400/10 text-lime-400",
+          ]}>
+            {service.icon === "code" && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            )}
+            {service.icon === "cloud" && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            )}
+            {service.icon === "globe" && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
+            )}
+          </div>
+
+          <h3 class="font-[family-name:var(--font-display)] text-xl font-bold text-white mb-3">
+            {service.title}
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            {service.description}
+          </p>
+
+          <div class:list={[
+            "mt-6 h-0.5 rounded-full transition-all duration-500 w-0 group-hover:w-full",
+            service.color === "accent" && "bg-accent-400",
+            service.color === "cyber" && "bg-cyber-400",
+            service.color === "lime" && "bg-lime-400",
+          ]}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

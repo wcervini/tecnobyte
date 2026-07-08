@@ -1,0 +1,8 @@
+{
+  "name": "tecnobyte",
+  "compatibility_date": "2025-07-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist"
+  }
+}
