@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.tecnobyte.es/sitemap.xml
+Sitemap: https://www.tecnobyte.es/sitemap-index.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 1
