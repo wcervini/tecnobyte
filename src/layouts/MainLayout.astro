@@ -1,12 +1,14 @@
 ---
-const {  title, description, image, url } = Astro.props;
+import Header from '../components/Header.astro';
+
 interface SEOProps {
   title: string;
   description: string;
   image: string;
   url: string;
 }
-import Header from '../components/Header.astro';
+
+const { title, description, image, url } = Astro.props as SEOProps;
 ---
 <!DOCTYPE html>
 <html lang="es">
