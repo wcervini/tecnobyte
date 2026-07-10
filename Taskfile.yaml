@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+  dev:
+    desc: 'Inicia el entorno de desarrollo'
+    cmds:
+      - pnpm astro dev
+
+  build:
+    desc: 'Compila el proyecto con Astro y Tailwind'
+    cmds:
+      - pnpm astro build
+  check:
+    desc: 'Revisa el proyecto con Astro y Tailwind'
+    cmds:
+      - pnpm astro check
+  preview:
+    desc: 'Previsualiza el build local'
+    cmds:
+      - pnpm astro preview
+
+  deploy:
+    desc: 'Build y despliegue a Cloudflare'
+    cmds:
+      - task: build
+      - npx wrangler pages deploy dist
