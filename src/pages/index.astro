@@ -1,5 +1,5 @@
 ---
-import Header from '../components/Header.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
 import TechStack from '../components/TechStack.astro';
@@ -11,31 +11,32 @@ import StructuredData from '../components/StructuredData.astro';
 import '../styles/global.css';
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<SEO
-			title="Tecnobyte - Desarrollo Web de Alto Rendimiento"
-			description="Expertos en desarrollo web moderno con Astro, Tailwind CSS y Cloudflare. Sitios rápidos, seguros y optimizados. Hosting, dominios y desarrollo a medida."
-			canonical="https://www.tecnobyte.es"
-		/>
-		<StructuredData />
+<MainLayout
+	title="Tecnobyte - Desarrollo Web de Alto Rendimiento"
+	description="Expertos en desarrollo web moderno con Astro, Tailwind CSS y Cloudflare. Sitios rápidos, seguros y optimizados. Hosting, dominios y desarrollo a medida."
+	image="/og-image.png"
+	url="https://www.tecnobyte.es"
+>
+	<SEO
+		slot="head"
+		title="Tecnobyte - Desarrollo Web de Alto Rendimiento"
+		description="Expertos en desarrollo web moderno con Astro, Tailwind CSS y Cloudflare. Sitios rápidos, seguros y optimizados. Hosting, dominios y desarrollo a medida."
+		canonical="https://www.tecnobyte.es"
+	/>
+	<StructuredData slot="head" />
 
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-		<link rel="shortcut icon" href="/favicon.png" type="image/png">
-	</head>
-	<body class="bg-dark-950 text-gray-200 antialiased">
-		<Header />
-		<main id="main-content">
-			<Hero />
-			<Services />
-			<TechStack />
-			<About />
-			<Contact />
-		</main>
-		<Footer />
-	</body>
-</html>
+	<meta name="generator" content={Astro.generator} slot="head" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" slot="head" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head" />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" slot="head" />
+	<link rel="shortcut icon" href="/favicon.png" type="image/png" slot="head" />
+
+	<main id="main-content">
+		<Hero />
+		<Services />
+		<TechStack />
+		<About />
+		<Contact />
+	</main>
+	<Footer />
+</MainLayout>
