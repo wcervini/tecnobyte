@@ -1,10 +1,12 @@
 ---
 import Header from '../components/Header.astro';
+import globalStyles from '../styles/global.css?inline';
 ---
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <style set:html={globalStyles}></style>
     <slot name="head" />
     <script defer src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>

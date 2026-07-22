@@ -1,0 +1,55 @@
+;;
+;; Domain:     tecnobyte.es.
+;; Exported:   2026-07-22 10:38:25
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+tecnobyte.es	3600	IN	SOA	tegan.ns.cloudflare.com. dns.cloudflare.com. 2053638330 10000 2400 604800 3600
+
+;; NS Records
+tecnobyte.es.	86400	IN	NS	tegan.ns.cloudflare.com.
+tecnobyte.es.	86400	IN	NS	trace.ns.cloudflare.com.
+
+;; A Records
+wd.tecnobyte.es.	1	IN	A	164.132.111.83 ; cf_tags=cf-proxied:true
+
+;; CNAME Records
+www.tecnobyte.es.	1	IN	CNAME	tecnobyte.pages.dev. ; cf_tags=cf-proxied:true
+
+;; MX Records
+send.tecnobyte.es.	1	IN	MX	10 feedback-smtp.eu-west-1.amazonses.com.
+tecnobyte.es.	1	IN	MX	87 route3.mx.cloudflare.net.
+tecnobyte.es.	1	IN	MX	2 route2.mx.cloudflare.net.
+tecnobyte.es.	1	IN	MX	31 route1.mx.cloudflare.net.
+wd.tecnovyte.es.tecnobyte.es.	1	IN	MX	87 route3.mx.cloudflare.net.
+wd.tecnovyte.es.tecnobyte.es.	1	IN	MX	2 route2.mx.cloudflare.net.
+wd.tecnovyte.es.tecnobyte.es.	1	IN	MX	31 route1.mx.cloudflare.net.
+
+;; TXT Records
+cf2024-1._domainkey.tecnobyte.es.	1	IN	TXT	"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78k" "m4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB"
+_dmarc.tecnobyte.es.	1	IN	TXT	"v=DMARC1; p=none;"
+resend._domainkey.tecnobyte.es.	1	IN	TXT	"p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI+tr1qGkqK2tc6GGu2eEZ/zriHET01O0rqMSD3Krf1RGqwn5PCXZskOa2Wh0Qqu2G8/5JHSqWHJ2zWQOBTxWpbYdxrQwmRdVoi/sW8LE8pJhsHhQR+7Yino9FPv9zcK8ISyqe6f17hkzODVgNHVeAjEWtsQeqeQ5PeWSMkINT4wIDAQAB"
+send.tecnobyte.es.	1	IN	TXT	"v=spf1 include:amazonses.com ~all"
+tecnobyte.es.	1	IN	TXT	"v=spf1 include:_spf.mx.cloudflare.net ~all"
+tecnobyte.es.	3600	IN	TXT	"google-site-verification=xnpDfAGsXtPAKAhbJEuW4aHWUshGsz844ua9f_pyDFs"
+wd.tecnobyte.es.	1	IN	TXT	"v=spf1 include:_spf.mx.cloudflare.net ~all"
