@@ -20,6 +20,7 @@ const { title, description, image, url } = Astro.props as SEOProps;
     <meta property="og:image" content={image} />
     <meta property="og:url" content={url} />
     <slot name="head" />
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-7VjN6qfk4QjWr4QjIh6bcdhWwnY2Cq3nTFGQNKXhQEXHfPx5WYFIBaivJNlqM6" crossorigin="anonymous"></script>
 </head>
 <body>
     <Header/>
