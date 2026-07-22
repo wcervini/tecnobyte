@@ -2,15 +2,17 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import LinkCard from '../components/LinkCard.astro';
 import links from '../data/links.json';
+import SEO from '../components/SEO.astro';
 import '../styles/global.css';
 ---
 
-<MainLayout
-	title="Enlaces · Tecnobyte"
-	description="Proyectos y sitios de Tecnobyte. Explora nuestras webs y trabajos."
-	image="/og-image.png"
-	url="https://www.tecnobyte.es/links"
->
+<MainLayout>
+	<SEO
+		slot="head"
+		title="Enlaces · Tecnobyte"
+		description="Proyectos y sitios de Tecnobyte. Explora nuestras webs y trabajos."
+		canonical="https://www.tecnobyte.es/links"
+	/>
 	<main id="main-content" class="relative min-h-screen grid-bg bg-noise pt-32 pb-24 px-5 sm:px-6 overflow-hidden">
 		<!-- scanline overlay -->
 		<div class="pointer-events-none fixed inset-0 z-40 opacity-[0.04] [background:repeating-linear-gradient(0deg,#fff_0,#fff_1px,transparent_1px,transparent_3px)]"></div>
