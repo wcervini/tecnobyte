@@ -6,17 +6,17 @@ import Header from '../components/Header.astro';
 <html lang="es">
 <head>
     <slot name="head" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0918K7C3W"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B0918K7C3W');
-    </script>
     <script defer src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
 <body>
     <Header/>
     <slot/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0918K7C3W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0918K7C3W');
+    </script>
 </body>
 </html>
