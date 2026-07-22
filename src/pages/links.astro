@@ -1,0 +1,58 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import LinkCard from '../components/LinkCard.astro';
+import links from '../data/links.json';
+import '../styles/global.css';
+---
+
+<MainLayout
+	title="Enlaces · Tecnobyte"
+	description="Proyectos y sitios de Tecnobyte. Explora nuestras webs y trabajos."
+	image="/og-image.png"
+	url="https://www.tecnobyte.es/links"
+>
+	<main id="main-content" class="relative min-h-screen grid-bg bg-noise pt-32 pb-24 px-5 sm:px-6 overflow-hidden">
+		<!-- scanline overlay -->
+		<div class="pointer-events-none fixed inset-0 z-40 opacity-[0.04] [background:repeating-linear-gradient(0deg,#fff_0,#fff_1px,transparent_1px,transparent_3px)]"></div>
+
+		<!-- ambient glow -->
+		<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[680px] rounded-full bg-accent-400/10 blur-[120px]"></div>
+
+		<div class="relative z-10 max-w-2xl mx-auto">
+			<header class="mb-14 text-center">
+				<p class="font-mono text-xs tracking-[0.35em] text-accent-400 uppercase mb-4 flex items-center justify-center gap-3">
+					<span class="inline-block w-8 h-px bg-accent-400"></span>
+					Directory // Projects
+					<span class="inline-block w-8 h-px bg-accent-400"></span>
+				</p>
+				<h1 class="font-display text-5xl sm:text-7xl font-extrabold leading-none text-gray-50 mb-5">
+					Enlaces
+				</h1>
+				<p class="font-mono text-sm text-gray-500 max-w-md mx-auto">
+					Índice de sitios y proyectos desarrollados por <span class="text-accent-400">Tecnobyte</span>.
+				</p>
+			</header>
+
+			<ul class="flex flex-col gap-4">
+				{links.map((link, i) => (
+					<LinkCard
+						url={link.url}
+						title={link.title}
+						description={link.description}
+						tag={link.tag}
+						image={link.image}
+						index={i}
+					/>
+				))}
+			</ul>
+
+			<div class="mt-14 flex items-center gap-4">
+				<div class="glow-line flex-1"></div>
+				<footer class="font-mono text-[11px] tracking-widest text-gray-600 uppercase text-center">
+					Tecnobyte · {links.length} enlaces registrados
+				</footer>
+				<div class="glow-line flex-1"></div>
+			</div>
+		</div>
+	</main>
+</MainLayout>
