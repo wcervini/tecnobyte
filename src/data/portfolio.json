@@ -1,0 +1,23 @@
+[
+  {
+    "url": "https://www.tecnobyte.es",
+    "title": "Tecnobyte",
+    "description": "Empresa de diseño web, desarrollo, hosting y dominios en San Isidro, Tenerife.",
+    "tag": "Diseño Web",
+    "image": "/front-wd.png"
+  },
+  {
+    "url": "https://wd.tecnobyte.es",
+    "title": "WD · Tecnobyte",
+    "description": "Plataforma de compraventa de coches.",
+    "tag": "Automoción",
+    "image": "/front-tecnobyte.png"
+  },
+  {
+    "url": "https://cervini.org",
+    "title": "Cervini",
+    "description": "Bufete de abogados expertos en derecho laboral.",
+    "tag": "Legal",
+    "image": "/cervini.png"
+  }
+]
