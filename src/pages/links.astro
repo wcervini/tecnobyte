@@ -1,6 +1,5 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import LinkCard from '../components/LinkCard.astro';
 import links from '../data/links.json';
 import SEO from '../components/SEO.astro';
 ---
@@ -13,10 +12,8 @@ import SEO from '../components/SEO.astro';
 		canonical="https://www.tecnobyte.es/links"
 	/>
 	<main id="main-content" class="relative min-h-screen grid-bg bg-noise pt-32 pb-24 px-5 sm:px-6 overflow-hidden">
-		<!-- scanline overlay -->
 		<div class="pointer-events-none fixed inset-0 z-40 opacity-[0.04] [background:repeating-linear-gradient(0deg,#fff_0,#fff_1px,transparent_1px,transparent_3px)]"></div>
 
-		<!-- ambient glow -->
 		<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[680px] rounded-full bg-accent-400/10 blur-[120px]"></div>
 
 		<div class="relative z-10 max-w-2xl mx-auto">
@@ -34,26 +31,25 @@ import SEO from '../components/SEO.astro';
 				</p>
 			</header>
 
-			<ul class="flex flex-col gap-4">
-				{links.map((link, i) => (
-					<LinkCard
-						url={link.url}
-						title={link.title}
-						description={link.description}
-						tag={link.tag}
-						image={link.image}
-						index={i}
-					/>
+			<ul class="flex flex-col gap-2">
+				{links.map((link) => (
+					<li>
+						<a
+							href={link.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="font-display text-lg text-gray-300 hover:text-accent-400 transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-accent-400/40"
+						>
+							{link.title}
+						</a>
+						{link.description && (
+							<p class="font-body text-sm text-gray-500 mt-0.5">
+								{link.description}
+							</p>
+						)}
+					</li>
 				))}
 			</ul>
-
-			<div class="mt-14 flex items-center gap-4">
-				<div class="glow-line flex-1"></div>
-				<footer class="font-mono text-[11px] tracking-widest text-gray-600 uppercase text-center">
-					Tecnobyte · {links.length} enlaces registrados
-				</footer>
-				<div class="glow-line flex-1"></div>
-			</div>
 		</div>
 	</main>
 </MainLayout>
