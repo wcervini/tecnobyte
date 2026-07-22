@@ -1,0 +1,19 @@
+# Tecnobyte
+
+Expertos en desarrollo web moderno con Astro, Tailwind CSS y Cloudflare.
+
+## Sitio principal
+
+- https://www.tecnobyte.es/ - Inicio y servicios
+- https://www.tecnobyte.es/links - Enlaces y proyectos
+
+## Contacto
+
+- Email: contacto@tecnobyte.es
+- Teléfono: +34-651068495
+
+## Redes sociales
+
+- YouTube: https://www.youtube.com/@JustTecnobyte
+- LinkedIn: https://www.linkedin.com/in/waltercervini/
+- X: https://x.com/v0lp
