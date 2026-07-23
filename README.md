@@ -16,7 +16,7 @@ Somos **Tecnobyte**, una empresa experta en las últimas tecnologías del desarr
 |:-----------|:------------|
 | [Astro](https://astro.build) | Framework de sitios web de alto rendimiento con arquitectura de islas |
 | [Tailwind CSS](https://tailwindcss.com) | Framework de utilidades CSS para estilos atomizados |
-| [Cloudflare](https://www.cloudflare.com) | CDN, protección DDoS, DNS y despliegue edge |
+| [Cloudflare](https://www.cloudflare.com) | CDN, protección DDoS y DNS |
 | [TypeScript](https://www.typescriptlang.org) | JavaScript con tipado estático para código robusto |
 | [HTMX](https://htmx.org) | Extensiones HTML para interacciones dinámicas sin JavaScript pesado |
 
@@ -24,14 +24,12 @@ Somos **Tecnobyte**, una empresa experta en las últimas tecnologías del desarr
 
 ```text
 tecnobyte/
-├── .github/workflows/   # CI/CD para Cloudflare
 ├── public/              # Assets estáticos (favicon, imágenes)
 ├── src/
 │   ├── components/      # Componentes Astro
 │   ├── pages/           # Páginas y rutas del sitio
 │   └── styles/          # Estilos globales
 ├── astro.config.mjs     # Configuración de Astro
-├── wrangler.jsonc       # Configuración de Cloudflare Workers
 ├── package.json
 └── tsconfig.json
 ```
@@ -44,8 +42,7 @@ tecnobyte/
 | `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
 | `pnpm build` | Genera el sitio de producción en `./dist/` |
 | `pnpm preview` | Previsualiza el sitio construido localmente |
-| `pnpm preview:wrangler` | Previsualiza con Wrangler (simula Cloudflare) |
-| `pnpm deploy` | Despliega directamente a Cloudflare Pages |
+| `pnpm deploy` | Genera el build de producción en `./dist/` |
 | `pnpm astro ...` | Ejecuta comandos CLI de Astro |
 
 ## Desarrollo
@@ -68,23 +65,9 @@ pnpm dev
 - **Interactividad:** Preferir Web Components nativos o HTMX para interacciones con el servidor.
 - **TypeScript:** Tipado estricto en todos los archivos `.ts` y bloques `<script>` de componentes Astro.
 
-## CI/CD con Cloudflare
+## CI/CD
 
-El proyecto incluye pipelines de GitHub Actions para despliegue automático:
-
-- **`main` push** → Build + Deploy a producción en Cloudflare Pages
-- **Pull Request** → Build + Deploy de preview + comentario automático en el PR
-
-### Configuración Requerida
-
-Añade estos secrets en tu repositorio de GitHub (`Settings > Secrets`):
-
-| Secret | Descripción |
-|:-------|:------------|
-| `CLOUDFLARE_API_TOKEN` | Token de API de Cloudflare ([Crear token](https://dash.cloudflare.com/profile/api-tokens)) |
-| `CLOUDFLARE_ACCOUNT_ID` | ID de tu cuenta de Cloudflare ([Dashboard](https://dash.cloudflare.com)) |
-
-Permisos necesarios para el token: `Cloudflare Pages: Edit`.
+El proyecto incluye un pipeline de GitHub Actions para build automático en cada push.
 
 ## Licencia
 

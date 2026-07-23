@@ -1,6 +1,0 @@
-{
-  "name": "tecnobyte",
-  "compatibility_date": "2025-07-08",
-  "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "./dist"
-}

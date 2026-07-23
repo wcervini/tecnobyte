@@ -20,7 +20,6 @@ tasks:
       - pnpm astro preview
 
   deploy:
-    desc: 'Build y despliegue a Cloudflare'
+    desc: 'Build de producción'
     cmds:
       - task: build
-      - npx wrangler pages deploy dist
