@@ -30,6 +30,7 @@ tecnobyte/
 │   ├── pages/           # Páginas y rutas del sitio
 │   └── styles/          # Estilos globales
 ├── astro.config.mjs     # Configuración de Astro
+├── wrangler.jsonc       # Configuración de Cloudflare Pages
 ├── package.json
 └── tsconfig.json
 ```
@@ -42,7 +43,8 @@ tecnobyte/
 | `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
 | `pnpm build` | Genera el sitio de producción en `./dist/` |
 | `pnpm preview` | Previsualiza el sitio construido localmente |
-| `pnpm deploy` | Genera el build de producción en `./dist/` |
+| `pnpm preview:wrangler` | Previsualiza con Wrangler (simula Cloudflare) |
+| `pnpm deploy` | Build + deploy a Cloudflare Pages |
 | `pnpm astro ...` | Ejecuta comandos CLI de Astro |
 
 ## Desarrollo
@@ -65,9 +67,10 @@ pnpm dev
 - **Interactividad:** Preferir Web Components nativos o HTMX para interacciones con el servidor.
 - **TypeScript:** Tipado estricto en todos los archivos `.ts` y bloques `<script>` de componentes Astro.
 
-## CI/CD
+## CI/CD con Cloudflare Pages
 
-El proyecto incluye un pipeline de GitHub Actions para build automático en cada push.
+El proyecto se despliega automáticamente en Cloudflare Pages al hacer push a `main`.
+Conecta tu repositorio en el dashboard de Cloudflare Pages para activar los deploys automáticos.
 
 ## Licencia
 
