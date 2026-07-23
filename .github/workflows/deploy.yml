@@ -23,11 +23,11 @@ jobs:
       - run: pnpm build
 
       - name: Sync to VPS
-        uses: burnett01/rsync-deployments@7.0.2
+        uses: burnett01/rsync-deployments@8.0
         with:
           switches: -avz --delete --exclude='.env*'
           path: dist/
           remote_path: /home/ubuntu/ts/
-          remote_host: tecnobyte
+          remote_host: 164.132.111.83
           remote_user: ubuntu
           remote_key: ${{ secrets.DEPLOY_KEY }}
