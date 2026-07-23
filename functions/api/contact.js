@@ -59,14 +59,18 @@ function escapeHtml(str) {
 }
 
 function formSuccess() {
-  return `<div class="text-center py-12">
-    <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-accent-400/10 mb-6">
-      <svg class="h-8 w-8 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  return `<div class="text-center py-12 animate-fade-up opacity-0" style="animation-fill-mode:forwards">
+    <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-lime-400/10 mb-6">
+      <svg class="h-8 w-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
       </svg>
     </div>
     <h3 class="font-display text-2xl font-bold text-white mb-2">¡Mensaje enviado!</h3>
-    <p class="text-gray-400">Gracias por contactarnos. Te responderemos a la brevedad.</p>
+    <p class="text-gray-400 mb-8">Gracias por contactarnos. Te responderemos a la brevedad.</p>
+    <button onclick="this.closest('#contact-form-wrapper').innerHTML = document.getElementById('contact-form-skeleton').innerHTML"
+      class="px-6 py-3 rounded-full bg-white/5 text-gray-300 text-sm font-semibold border border-white/10 hover:bg-white/10 hover:text-white transition-all duration-300 cursor-pointer">
+      Enviar otro mensaje
+    </button>
   </div>`;
 }
 

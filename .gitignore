@@ -13,4 +13,7 @@ node_modules/
 # environment variables
 .env*
 
+# wrangler temp files
+.wrangler/
+
 

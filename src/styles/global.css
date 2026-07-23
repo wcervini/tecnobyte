@@ -20,6 +20,12 @@
 
   --color-lime-400: #a3e635;
   --color-lime-500: #84cc16;
+
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+
+  --color-rose-400: #fb7185;
+  --color-rose-500: #f43f5e;
 }
 
 @layer base {

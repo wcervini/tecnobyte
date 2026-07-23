@@ -42,13 +42,17 @@
       </a>
     </div>
 
-    <div class="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-up animate-delay-4 opacity-0">
+    <div id="stats" class="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-up animate-delay-4 opacity-0">
       <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold font-display text-gradient">100+</div>
+        <div class="text-3xl md:text-4xl font-bold font-display text-gradient">
+          <span data-count="100" data-suffix="+">0</span>
+        </div>
         <div class="text-sm text-gray-500 mt-1">Proyectos</div>
       </div>
       <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold font-display text-gradient">99.9%</div>
+        <div class="text-3xl md:text-4xl font-bold font-display text-gradient">
+          <span data-count="99.9" data-suffix="%" data-decimals="1">0</span>
+        </div>
         <div class="text-sm text-gray-500 mt-1">Uptime</div>
       </div>
       <div class="text-center">
@@ -64,3 +68,43 @@
     </svg>
   </div>
 </section>
+
+<script>
+  // @ts-nocheck
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals) || 0;
+    const duration = 1800;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = eased * target;
+      el.textContent = current.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const statsEl = document.getElementById('stats');
+  if (statsEl) {
+    const counters = statsEl.querySelectorAll('[data-count]');
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          counters.forEach((el) => animateCounter(el));
+          observer.disconnect();
+        }
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(statsEl);
+  }
+</script>

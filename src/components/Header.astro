@@ -17,10 +17,7 @@ const navItems = [
 <header class="fixed top-0 left-0 right-0 z-50 bg-dark-950/80 backdrop-blur-xl border-b border-white/5" role="banner">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3 group" aria-label="Tecnobyte - Inicio">
-      <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-linear-gradient-to-br from-accent-400 to-cyber-400 flex items-center justify-center text-dark-950 font-bold font-display text-lg lg:text-xl group-hover:scale-110 transition-transform duration-300">
-      </div>
-      <img src="/logo3.svg" alt="Logo de Tecnobyte" width="300" height="300" fetchpriority="high" class="h-10 lg:h-16 w-auto" />
-      
+      <img src="/logo3.svg" alt="Logo de Tecnobyte" width="300" height="300" fetchpriority="high" class="h-10 lg:h-16 w-auto group-hover:scale-105 transition-transform duration-300" />
     </a>
 
     <nav class="hidden md:flex items-center gap-8 lg:gap-10" aria-label="Navegación principal">
@@ -42,28 +39,34 @@ const navItems = [
 
     <button
       id="menu-toggle"
-      class="md:hidden text-gray-400 hover:text-white transition-colors"
-      aria-label="Menú"
+      class="md:hidden relative z-50 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+      aria-label="Abrir menú"
+      aria-expanded="false"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-dark-950/95 backdrop-blur-xl">
-    <div class="px-6 py-4 flex flex-col gap-4">
+  <div id="menu-overlay" class="md:hidden fixed inset-0 z-40 bg-dark-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <div id="mobile-menu" class="md:hidden fixed top-0 right-0 z-40 h-full w-72 max-w-[85vw] bg-dark-900 border-l border-white/5 shadow-2xl translate-x-full transition-transform duration-300 ease-out">
+    <div class="flex flex-col gap-2 px-6 pt-24 pb-8 h-full overflow-y-auto">
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="text-gray-400 hover:text-accent-400 transition-colors duration-300 font-medium"
+          class="text-lg text-gray-400 hover:text-accent-400 transition-colors duration-300 font-medium py-3 border-b border-white/5"
         >
           {item.label}
         </a>
       ))}
       <a
         href="/#contacto"
-        class="px-5 py-2.5 rounded-full bg-accent-400/10 text-accent-400 text-sm font-semibold border border-accent-400/20 hover:bg-accent-400/20 transition-all duration-300 text-center"
+        class="mt-4 px-5 py-3 rounded-full bg-accent-400/10 text-accent-400 text-sm font-semibold border border-accent-400/20 hover:bg-accent-400/20 transition-all duration-300 text-center"
       >
         Contáctanos
       </a>
@@ -74,8 +77,48 @@ const navItems = [
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('menu-overlay');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  const navLinks = menu?.querySelectorAll('a');
+
+  function openMenu() {
+    menu?.classList.remove('translate-x-full');
+    menu?.classList.add('translate-x-0');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    overlay?.classList.add('opacity-100', 'pointer-events-auto');
+    iconOpen?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Cerrar menú');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu?.classList.remove('translate-x-0');
+    menu?.classList.add('translate-x-full');
+    overlay?.classList.remove('opacity-100', 'pointer-events-auto');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    iconClose?.classList.add('hidden');
+    iconOpen?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Abrir menú');
+    document.body.style.overflow = '';
+  }
 
   toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  overlay?.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  navLinks?.forEach((link) => {
+    link.addEventListener('click', closeMenu);
   });
 </script>

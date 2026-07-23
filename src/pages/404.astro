@@ -1,0 +1,48 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SEO from '../components/SEO.astro';
+---
+
+<MainLayout>
+	<SEO
+		slot="head"
+		title="Página no encontrada · Tecnobyte"
+		description="La página que buscas no existe. Vuelve al inicio o contacta con nosotros."
+		canonical="https://www.tecnobyte.es/404"
+	/>
+	<main id="main-content" class="relative min-h-screen grid-bg bg-noise pt-32 pb-24 px-5 sm:px-6 overflow-hidden flex items-center justify-center">
+		<div class="pointer-events-none fixed inset-0 z-40 opacity-[0.04] [background:repeating-linear-gradient(0deg,#fff_0,#fff_1px,transparent_1px,transparent_3px)]"></div>
+
+		<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[680px] rounded-full bg-accent-400/10 blur-[120px]"></div>
+
+		<div class="relative z-10 text-center max-w-lg mx-auto">
+			<div class="font-display text-[10rem] sm:text-[12rem] font-extrabold leading-none text-gradient mb-4">404</div>
+
+			<h1 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+				Página no encontrada
+			</h1>
+
+			<p class="text-gray-400 text-lg mb-10 leading-relaxed">
+				La página que buscas no existe o ha sido movida.
+			</p>
+
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<a
+					href="/"
+					class="px-8 py-4 rounded-full bg-accent-400 text-dark-950 font-semibold hover:bg-accent-400/90 transition-all duration-300 flex items-center gap-2 group"
+				>
+					<svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+					</svg>
+					Volver al inicio
+				</a>
+				<a
+					href="/#contacto"
+					class="px-8 py-4 rounded-full bg-white/5 text-white font-semibold border border-white/10 hover:bg-white/10 transition-all duration-300"
+				>
+					Contactar
+				</a>
+			</div>
+		</div>
+	</main>
+</MainLayout>

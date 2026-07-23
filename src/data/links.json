@@ -1,16 +1,1 @@
-[
-  {
-    "url": "https://wd.tecnobyte.es",
-    "title": "WD · Tecnobyte",
-    "description": "Web de proyectos y desarrollo de Tecnobyte.",
-    "tag": "Proyectos",
-    "image": "/front-tecnobyte.png"
-  },
-  {
-    "url": "https://www.tecnobyte.es",
-    "title": "Tecnobyte",
-    "description": "Sitio principal con noticias y artículos de tecnología.",
-    "tag": "Principal",
-    "image": "/front-wd.png"
-  }
-]
+[]

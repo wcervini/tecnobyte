@@ -1,12 +1,14 @@
 ---
 import Header from '../components/Header.astro';
 import globalStyles from '../styles/global.css?inline';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <style set:html={globalStyles}></style>
+    <ClientRouter />
     <slot name="head" />
     <script defer src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
@@ -19,6 +21,11 @@ import globalStyles from '../styles/global.css?inline';
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-B0918K7C3W');
+    </script>
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        if (window.gtag) gtag('event', 'page_view', { page_location: location.href });
+      });
     </script>
 </body>
 </html>
